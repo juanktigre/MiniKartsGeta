@@ -179,10 +179,13 @@ namespace KartGame.KartSystems
             if (isSLowingDown)
             {
                 Vector3 adjustedVelocity = Rigidbody.velocity;
-                Vector3 restVelocity = new Vector3(0, Rigidbody.velocity.y, 0);
+                // Vector3 restVelocity = new Vector3(0, Rigidbody.velocity.y, 0);
+                // Vector3 restVelocity = new Vector3(Rigidbody.velocity.x * 30, Rigidbody.velocity.y, Rigidbody.velocity.z * 30);
+                Vector3 restVelocity = new Vector3(Rigidbody.velocity.x , Rigidbody.velocity.y, Rigidbody.velocity.z);
                 adjustedVelocity =Vector3.MoveTowards(adjustedVelocity, restVelocity, Time.deltaTime * 30); 
 
-                Rigidbody.velocity = adjustedVelocity;
+                // Rigidbody.velocity = adjustedVelocity;
+                Rigidbody.velocity = restVelocity;
             }
 
         }
@@ -408,9 +411,17 @@ namespace KartGame.KartSystems
             }
         }
         
-        public void PowerUpSlowDown(float speedAmount =30f)
+        public void PowerUpSlowDown( ArcadeKartPowerup power)
         {
+            power.onPowerupFinishCooldownAction = onfinishslowDown;
             isSLowingDown = true;
+        }
+
+        public void JumpPowerup(float value)
+        {
+            print("Jump powerUp");
+            Vector3 restVelocity = new Vector3(Rigidbody.velocity.x, Rigidbody.velocity.y*value,Rigidbody.velocity.z);
+            Rigidbody.velocity = restVelocity;
         }
 
         private void onfinishslowDown()
