@@ -18,7 +18,7 @@ namespace GetaGames
     [Serializable]
     public class MeshLookSetUpModel
     {
-        public Image tiresTypesUI;
+        public Sprite tiresSprite;
         public  GameObject tiresTypes;
     }
     
@@ -32,7 +32,7 @@ namespace GetaGames
     [Serializable]
     public class UIColorLookSetUpModel
     {
-        [SerializeField] private List<Color> charColors;
+        public List<Color> colorsList;
         public  GameObject prefabUI;
     }
     
@@ -51,7 +51,7 @@ namespace GetaGames
         
 
 
-        public UIColorLookSetUpModel GetListColorModel()
+        public UIColorLookSetUpModel GetListCharSetUp()
         {
             return characterSetUp;
         }
@@ -61,7 +61,7 @@ namespace GetaGames
             return chasisSetUp;
         }
         
-        public UIMeshLookSetUpModel GetListCharrColors()
+        public UIMeshLookSetUpModel GetListTiresMeshSetUp()
         {
             return tiresSetUp;
         }

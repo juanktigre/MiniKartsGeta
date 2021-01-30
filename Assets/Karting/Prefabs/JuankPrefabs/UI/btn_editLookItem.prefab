@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5362585131156758912}
   - component: {fileID: 6153328493354946273}
   - component: {fileID: 3394595460660370708}
+  - component: {fileID: -6167877292995604367}
   m_Layer: 5
   m_Name: btn_editLookItem
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.017051239, g: 0.5660378, b: 0.008009953, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -118,3 +119,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-6167877292995604367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735566637042482338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95aceb2be2638cd409b05057900bda2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementID: 0
+  btnElemnt: {fileID: 3394595460660370708}

@@ -9,6 +9,6 @@ namespace GetaGames.BaseClasses
         public abstract Action<int> onChangeCharBtn { get; set; }
         public abstract Action<int> onChangeTiresBtn { get; set; }
         public abstract Action<int> onChangeChasisBtn { get; set; }
-        public abstract void Init();
+        public abstract void Init(IKartEditLookable kartEditCtrl);
     }
 }

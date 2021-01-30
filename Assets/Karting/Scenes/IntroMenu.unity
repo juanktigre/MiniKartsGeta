@@ -133,6 +133,21 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1358174437866222276}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &98241507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98241502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9b95bd2d4b81c4eafaac5ef32dcacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookTypeSetUp: {fileID: 11400000, guid: 2bba912c35f3a584bae9bc6ae4c0aa7f, type: 2}
+  lookType: 2
+  parentContainer: {fileID: 856854553}
 --- !u!1 &117466289
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +800,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50.000004, y: 39.791, z: 0}
+--- !u!224 &364841649 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1294928895944391014, guid: fdd2dbb2bfec95d47a86aec89b226ea0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1294928896449495910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &856854553 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1358174438951355062, guid: 8bcdd76049d4a4b4fac7b685db3f3bb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1358174437866222276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &904770611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,12 +1812,72 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1294928896449495910}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1463963889 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3474853878664540106, guid: 119b2c3ccac5c4160afc384f0909ee65,
-    type: 3}
-  m_PrefabInstance: {fileID: 478042391933411278}
+--- !u!114 &1393078820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393078815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6544123abb4804da06f9bdd5cff15b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookTypeSetUp: {fileID: 11400000, guid: 2bba912c35f3a584bae9bc6ae4c0aa7f, type: 2}
+  lookType: 1
+  parentContainer: {fileID: 364841649}
+  isInit: 0
+--- !u!1 &1454498098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454498099}
+  - component: {fileID: 1454498100}
+  m_Layer: 0
+  m_Name: KartWheelsParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1454498099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454498098}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.623, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3934862072311242298}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1454498100
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454498098}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 305a556307b36464395aa157cffcd3db, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1632018729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,12 +1934,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnTiresLook: {fileID: 1036482839}
-  btnCharacterLook: {fileID: 1016112811}
-  btnChasisLook: {fileID: 992528988}
+  btnCharacterLook: {fileID: 992528988}
+  btnChasisLook: {fileID: 1016112811}
   btnbackToPlay: {fileID: 1286735389}
   scrollTires: {fileID: 98241502}
   scrollChasis: {fileID: 1729726917}
   scrollChar: {fileID: 1393078815}
+  lookEditableObjSetList: []
 --- !u!1 &1692204655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1294928896488685280, guid: fdd2dbb2bfec95d47a86aec89b226ea0,
@@ -1926,11 +2014,32 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8956558386090739922}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1729726922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729726917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5390b419942a549b2e8666b274eb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookTypeSetUp: {fileID: 11400000, guid: 2bba912c35f3a584bae9bc6ae4c0aa7f, type: 2}
+  lookType: 0
+  parentContainer: {fileID: 1769635549}
 --- !u!137 &1752234400 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 3474853879776194097, guid: 119b2c3ccac5c4160afc384f0909ee65,
     type: 3}
   m_PrefabInstance: {fileID: 478042391933411278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1769635549 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8956558385575381035, guid: 74fef6404358713489708e183e238fc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8956558386090739922}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1833309139
 GameObject:
@@ -2253,9 +2362,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ef06143b5f05c47aa5048b35e6f6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookTypeSetUp: {fileID: 11400000, guid: 2bba912c35f3a584bae9bc6ae4c0aa7f, type: 2}
   kartLookUIPanel: {fileID: 1632018731}
   playUIPanel: {fileID: 1043169504}
-  kartEditLookCtrl: {fileID: 0}
+  kartEditLookCtrl: {fileID: 3934862072311242299}
 --- !u!1 &1906286930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,7 +3091,7 @@ PrefabInstance:
     - target: {fileID: 3474853878665032682, guid: 119b2c3ccac5c4160afc384f0909ee65,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3474853878770434540, guid: 119b2c3ccac5c4160afc384f0909ee65,
         type: 3}
@@ -3232,6 +3342,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scroll View_CharacterColor
       objectReference: {fileID: 0}
+    - target: {fileID: 1294928895091044729, guid: fdd2dbb2bfec95d47a86aec89b226ea0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1294928895723424809, guid: fdd2dbb2bfec95d47a86aec89b226ea0,
         type: 3}
       propertyPath: m_IsActive
@@ -3245,6 +3360,11 @@ PrefabInstance:
     - target: {fileID: 1294928895741965736, guid: fdd2dbb2bfec95d47a86aec89b226ea0,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294928895944391014, guid: fdd2dbb2bfec95d47a86aec89b226ea0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1294928896018891355, guid: fdd2dbb2bfec95d47a86aec89b226ea0,
@@ -3604,6 +3724,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 478042391933411278}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &3934862072311242298 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3474853878770434540, guid: 119b2c3ccac5c4160afc384f0909ee65,
+    type: 3}
+  m_PrefabInstance: {fileID: 478042391933411278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3934862072311242299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3616,7 +3742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c54d63a8ac2d54f84e453aa3fa2245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiresParent: {fileID: 1463963889}
+  kartLookSetUp: {fileID: 0}
+  tiresParent: {fileID: 1454498099}
   chasis: {fileID: 1752234400}
   character: {fileID: 1013246541}
 --- !u!1001 &8956558386090739922
@@ -3741,6 +3868,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scroll View_ChasisColor
       objectReference: {fileID: 0}
+    - target: {fileID: 8956558384461873431, guid: 74fef6404358713489708e183e238fc9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8956558384617501664, guid: 74fef6404358713489708e183e238fc9,
         type: 3}
       propertyPath: m_IsActive
@@ -3754,6 +3886,11 @@ PrefabInstance:
     - target: {fileID: 8956558385434747092, guid: 74fef6404358713489708e183e238fc9,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956558385575381035, guid: 74fef6404358713489708e183e238fc9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8956558385630614929, guid: 74fef6404358713489708e183e238fc9,

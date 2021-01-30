@@ -12,11 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e006bf5f2ef744418d0cb949ee2dec2, type: 3}
   m_Name: New Kart Look Set Up Scriptable
   m_EditorClassIdentifier: KartGame:GetaGames:KartLookSetUpScriptable
-  charColors:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  chasisColors:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  tiresModel: []
+  chasisSetUp:
+    colorsList:
+    - {r: 0.990566, g: 0, b: 0, a: 1}
+    - {r: 1, g: 0, b: 0.8710184, a: 1}
+    - {r: 0, g: 0.19503069, b: 1, a: 1}
+    prefabUI: {fileID: 4735566637042482338, guid: e3d7b3fa20f3676459f8b00156d09210,
+      type: 3}
+  characterSetUp:
+    colorsList:
+    - {r: 0, g: 1, b: 0.14357352, a: 1}
+    - {r: 1, g: 0.8291087, b: 0, a: 1}
+    - {r: 1, g: 0.09145919, b: 0, a: 1}
+    - {r: 1, g: 0, b: 0.49759054, a: 1}
+    prefabUI: {fileID: 4735566637042482338, guid: e3d7b3fa20f3676459f8b00156d09210,
+      type: 3}
+  tiresSetUp:
+    meshLookSetUp:
+    - tiresSprite: {fileID: 21300000, guid: 781437d9a68e8b643bbd095df20b9ca6, type: 3}
+      tiresTypes: {fileID: 2193021004021563721, guid: ba2f2d207a45036439ff1c1d648f3fce,
+        type: 3}
+    - tiresSprite: {fileID: 21300000, guid: 69e7af79896a33d47b911eec345ed28f, type: 3}
+      tiresTypes: {fileID: 7000315753333114674, guid: b11ea4778651d744185c5f70961278a7,
+        type: 3}
+    - tiresSprite: {fileID: 21300000, guid: 48ec8e4800f0a694d9b995a21c98903b, type: 3}
+      tiresTypes: {fileID: 6141745852967597268, guid: 87f5a9e310cba484cb2511836ed66d83,
+        type: 3}
+    prefabUI: {fileID: 4735566637042482338, guid: e3d7b3fa20f3676459f8b00156d09210,
+      type: 3}

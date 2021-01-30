@@ -5,6 +5,8 @@ namespace GetaGames.Interfaces
     public interface IKartLookEditableSet
     {
         Transform container { get;  }
-        System.Action<int> onKartLookbtnPressed { get; set; }
+        System.Action<int,LookType> onKartLookbtnPressed { get; set; }
+        void Init();
+        GameObject GetObj { get; }
     }
 }

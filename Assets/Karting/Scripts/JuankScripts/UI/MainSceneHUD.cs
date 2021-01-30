@@ -9,17 +9,16 @@ namespace GetaGames
 {   
     public class MainSceneHUD : MonoBehaviour   
     {
+        [SerializeField] private KartLookSetUpScriptable lookTypeSetUp;
 
         [SerializeField] private KartLookEditable kartLookUIPanel;
         [SerializeField] private GoToPlay playUIPanel; 
-        [SerializeField] private KartEditLookController kartEditLookCtrl; 
-       
-        
+        [SerializeField] private KartEditLookController kartEditLookCtrl;
 
         private void Start()
         {
-            
-            kartLookUIPanel.Init();
+            kartEditLookCtrl.Init(lookTypeSetUp);
+            kartLookUIPanel.Init(kartEditLookCtrl.GetComponent<IKartEditLookable>());
             playUIPanel.Init();
             
             kartLookUIPanel.onKartLookBackBtn = ActivateGoPlayPanel ;
