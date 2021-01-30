@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GetaGames.Interfaces;
+using GetaGames.Services;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,13 +17,29 @@ namespace GetaGames
         [SerializeField] private SkinnedMeshRenderer chasis;
         [SerializeField] private SkinnedMeshRenderer character;
 
+        private IDataSaver datasaver;
         private GameObject currTires;
-        
+
+        private string tiresKey = "tiresMeshID";
+        private string characcterKey = "charColorID";
+        private string chasisKey="chasisColorID";
+
+        private bool isInit;
+        private void Awake()
+        {
+            if(!isInit)
+                Init(kartLookSetUp);
+        }
 
         public void Init(KartLookSetUpScriptable kartLookSetUp)
         {
             this.kartLookSetUp = kartLookSetUp;
-            SetTiresType(0);
+            datasaver = ServiceLocator.Instance.GetService<IDataSaver>();
+            SetTiresType(datasaver.GetInt(tiresKey));
+            SetChasisColor(datasaver.GetInt(chasisKey));
+            SetCharColor(datasaver.GetInt(characcterKey));
+
+            isInit = true;
 
         }
 
@@ -43,14 +60,17 @@ namespace GetaGames
             }
         }
         
-        public void SetChasisColor(int color)
+        public void SetChasisColor(int elementID)
         {
-             chasis.material.color = kartLookSetUp.GetListChasisrColors().colorsList[color];
+             chasis.material.color = kartLookSetUp.GetListChasisrColors().colorsList[elementID];
+             datasaver.SetInt(chasisKey, elementID);
         }
 
-        public void SetCharColor(int color)
+        public void SetCharColor(int elementID)
         {
-             character.material.color = kartLookSetUp.GetListCharSetUp().colorsList[color];
+             character.material.color = kartLookSetUp.GetListCharSetUp().colorsList[elementID];
+             datasaver.SetInt(characcterKey, elementID);
+
         }
 
         public void SetTiresType(int elementID)
@@ -58,7 +78,11 @@ namespace GetaGames
             var tiresObj = kartLookSetUp.GetListTiresMeshSetUp().meshLookSetUp[elementID].tiresTypes;
             if(currTires!= null)
                 Destroy(currTires);
+            
             currTires= Instantiate(tiresObj,tiresParent);
+            
+            datasaver.SetInt(tiresKey, elementID);
+
         }
     }
     
