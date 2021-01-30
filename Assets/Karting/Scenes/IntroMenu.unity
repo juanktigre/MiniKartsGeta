@@ -806,6 +806,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1294928896449495910}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &510381044 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3474853878664540102, guid: 119b2c3ccac5c4160afc384f0909ee65,
+    type: 3}
+  m_PrefabInstance: {fileID: 478042391933411278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &856854553 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1358174438951355062, guid: 8bcdd76049d4a4b4fac7b685db3f3bb7,
@@ -1603,6 +1609,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnGoToEditKart: {fileID: 1982266170}
+--- !u!4 &1062121644 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3474853878664540124, guid: 119b2c3ccac5c4160afc384f0909ee65,
+    type: 3}
+  m_PrefabInstance: {fileID: 478042391933411278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1151372821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,6 +1840,12 @@ MonoBehaviour:
   lookType: 1
   parentContainer: {fileID: 364841649}
   isInit: 0
+--- !u!4 &1422108268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3474853878664540098, guid: 119b2c3ccac5c4160afc384f0909ee65,
+    type: 3}
+  m_PrefabInstance: {fileID: 478042391933411278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1454498098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,6 +1896,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &1501336390 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3474853878664540096, guid: 119b2c3ccac5c4160afc384f0909ee65,
+    type: 3}
+  m_PrefabInstance: {fileID: 478042391933411278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1632018729
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,10 +3155,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3474853878662769960, guid: 119b2c3ccac5c4160afc384f0909ee65,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474853878662769962, guid: 119b2c3ccac5c4160afc384f0909ee65,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474853878662769964, guid: 119b2c3ccac5c4160afc384f0909ee65,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474853878662769966, guid: 119b2c3ccac5c4160afc384f0909ee65,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3474853878665032682, guid: 119b2c3ccac5c4160afc384f0909ee65,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3474853878770434540, guid: 119b2c3ccac5c4160afc384f0909ee65,
         type: 3}
@@ -3786,9 +3830,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kartLookSetUp: {fileID: 0}
-  tiresParent: {fileID: 1454498099}
+  tiresParent:
+  - {fileID: 510381044}
+  - {fileID: 1501336390}
+  - {fileID: 1422108268}
+  - {fileID: 1062121644}
   chasis: {fileID: 1752234400}
   character: {fileID: 1013246541}
+  currTires:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &8956558386090739922
 PrefabInstance:
   m_ObjectHideFlags: 0

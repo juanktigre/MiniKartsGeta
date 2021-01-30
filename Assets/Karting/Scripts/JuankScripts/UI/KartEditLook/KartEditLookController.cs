@@ -13,19 +13,19 @@ namespace GetaGames
     {
          [SerializeField] private KartLookSetUpScriptable kartLookSetUp;
 
-        [SerializeField] private Transform tiresParent;
+        [SerializeField] private Transform[] tiresParent;
         [SerializeField] private SkinnedMeshRenderer chasis;
         [SerializeField] private SkinnedMeshRenderer character;
 
         private IDataSaver datasaver;
-        private GameObject currTires;
+        [SerializeField] private List<GameObject> currTires;
 
         private string tiresKey = "tiresMeshID";
         private string characcterKey = "charColorID";
         private string chasisKey="chasisColorID";
 
         private bool isInit;
-        private void Awake()
+        private void Start()
         {
             if(!isInit)
                 Init(kartLookSetUp);
@@ -70,21 +70,22 @@ namespace GetaGames
         {
              character.material.color = kartLookSetUp.GetListCharSetUp().colorsList[elementID];
              datasaver.SetInt(characcterKey, elementID);
-
         }
 
         public void SetTiresType(int elementID)
         {
-            var tiresObj = kartLookSetUp.GetListTiresMeshSetUp().meshLookSetUp[elementID].tiresTypes;
-            if(currTires!= null)
-                Destroy(currTires);
-            
-            currTires= Instantiate(tiresObj,tiresParent);
-            
-            datasaver.SetInt(tiresKey, elementID);
+            for (int i = 0; i < tiresParent.Length; i++)
+            {
+                var tiresObj = kartLookSetUp.GetListTiresMeshSetUp().meshLookSetUp[elementID].tiresTypes[i];
 
+                if(currTires[i] != null)
+                    Destroy(currTires[i]);
+
+
+                currTires[i]=(Instantiate(tiresObj, tiresParent[i]));
+            }
+
+            datasaver.SetInt(tiresKey, elementID);
         }
     }
-    
-    
 }

@@ -22,7 +22,9 @@ namespace GetaGames.Services
       public void RegisterService<T>(T service)
       {
          var type = typeof(T);
-         Assert.IsFalse(_services.ContainsKey(type), $"Service {type} already registered");
+         //Assert.IsFalse(_services.ContainsKey(type), $"Service {type} already registered");
+         if(_services.ContainsKey(type))
+            return;
          _services.Add(type, service);
       }
 

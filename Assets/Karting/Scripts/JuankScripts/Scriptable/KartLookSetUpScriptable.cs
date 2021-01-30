@@ -19,7 +19,7 @@ namespace GetaGames
     public class MeshLookSetUpModel
     {
         public Sprite tiresSprite;
-        public  GameObject tiresTypes;
+        public  GameObject[] tiresTypes;
     }
     
     [Serializable]

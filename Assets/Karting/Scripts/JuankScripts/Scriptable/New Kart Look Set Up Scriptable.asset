@@ -30,13 +30,22 @@ MonoBehaviour:
   tiresSetUp:
     meshLookSetUp:
     - tiresSprite: {fileID: 21300000, guid: 781437d9a68e8b643bbd095df20b9ca6, type: 3}
-      tiresTypes: {fileID: 2193021004021563721, guid: ba2f2d207a45036439ff1c1d648f3fce,
-        type: 3}
+      tiresTypes:
+      - {fileID: 6411805958898514741, guid: d4dc8a643461d4a4d8a7a9294b77c642, type: 3}
+      - {fileID: 8729778991848404586, guid: e2cc7b3b0290eaa4cbe08bf15cc56828, type: 3}
+      - {fileID: 699207120560329367, guid: 638cb7575c0cb7445ae3c8c9534973df, type: 3}
+      - {fileID: 2939274096546454810, guid: 3935b3b7375747c47a9a46e19f8eb3ab, type: 3}
     - tiresSprite: {fileID: 21300000, guid: 69e7af79896a33d47b911eec345ed28f, type: 3}
-      tiresTypes: {fileID: 7000315753333114674, guid: b11ea4778651d744185c5f70961278a7,
-        type: 3}
+      tiresTypes:
+      - {fileID: 6106090453783021712, guid: 52cdd639c7bda154998da4818a62566b, type: 3}
+      - {fileID: 8235488963939358239, guid: dceacf5493e22254284f07b1dedd4e26, type: 3}
+      - {fileID: 1699946699715685033, guid: 26915481894466b42a3296e404d64e5b, type: 3}
+      - {fileID: 7694378949269923413, guid: e0006bae875dd494389330cfb7998e0f, type: 3}
     - tiresSprite: {fileID: 21300000, guid: 48ec8e4800f0a694d9b995a21c98903b, type: 3}
-      tiresTypes: {fileID: 6141745852967597268, guid: 87f5a9e310cba484cb2511836ed66d83,
-        type: 3}
+      tiresTypes:
+      - {fileID: 3552598845862495400, guid: 5e41acf763fd199438f951a765315a14, type: 3}
+      - {fileID: 1164136989393582838, guid: 5eb46e0e81edf184baf7579252ab949c, type: 3}
+      - {fileID: 9207845516695045625, guid: 1008376aa0e3e93438fcc240343da016, type: 3}
+      - {fileID: 1930163007489446747, guid: 265bc1d482c0a4449b62475850af98af, type: 3}
     prefabUI: {fileID: 4735566637042482338, guid: e3d7b3fa20f3676459f8b00156d09210,
       type: 3}
