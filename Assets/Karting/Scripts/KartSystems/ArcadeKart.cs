@@ -59,6 +59,8 @@ namespace KartGame.KartSystems
             [Tooltip("How much the Kart tries to keep going forward when on bumpy terrain.")]
             [Range(0, 1)]
             public float Suspension;
+            
+           
 
             // allow for stat adding for powerups.
             public static Stats operator +(Stats a, Stats b)
@@ -130,6 +132,8 @@ namespace KartGame.KartSystems
         List<StatPowerup> activePowerupList = new List<StatPowerup>();
         GameObject lastGroundCollided = null;
         ArcadeKart.Stats finalStats;
+        
+        public bool isSLowingDown;
 
         void Awake()
         {
@@ -138,6 +142,8 @@ namespace KartGame.KartSystems
             suspensionNeutralPos = SuspensionBody.transform.localPosition;
             suspensionNeutralRot = SuspensionBody.transform.localRotation;
         }
+
+       
 
         void FixedUpdate()
         {
@@ -170,6 +176,15 @@ namespace KartGame.KartSystems
 
             // animation
             AnimateSuspension();
+            if (isSLowingDown)
+            {
+                Vector3 adjustedVelocity = Rigidbody.velocity;
+                Vector3 restVelocity = new Vector3(0, Rigidbody.velocity.y, 0);
+                adjustedVelocity =Vector3.MoveTowards(adjustedVelocity, restVelocity, Time.deltaTime * 30); 
+
+                Rigidbody.velocity = adjustedVelocity;
+            }
+
         }
 
         void GatherInputs()
@@ -392,6 +407,17 @@ namespace KartGame.KartSystems
                 Rigidbody.velocity = latFrictionDampedVelocity;
             }
         }
+        
+        public void PowerUpSlowDown(float speedAmount =30f)
+        {
+            isSLowingDown = true;
+        }
+
+        private void onfinishslowDown()
+        {
+            isSLowingDown = false;
+
+        }
 
         void ApplyAngularSuspension()
         {
@@ -459,6 +485,8 @@ namespace KartGame.KartSystems
         {
             activePowerupList.Add(statPowerup);
         }
+        
+        
 
         public void Reset()
         {
