@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using GetaGames.Interfaces;
+using GetaGames.BaseClasses;
 
 
 namespace GetaGames
 {
-    public class UIKartLookController : MonoBehaviour, IKartLookEditable
+    public class UIKartLookController :  KartLookEditable
     {
         [Header("Buttons")] [SerializeField] private Button btnTiresLook;
         [SerializeField] private Button btnCharacterLook;
@@ -20,10 +20,12 @@ namespace GetaGames
         [SerializeField] private GameObject scrollChar;
 
 
-        public Action onKartLookBackBtn { get; set; }
+        public override Action onKartLookBackBtn { get; set; }
+        public override Action<int> onChangeCharBtn { get; set; }
+        public override Action<int> onChangeTiresBtn { get; set; }
+        public override Action<int> onChangeChasisBtn { get; set; }
 
-
-        void Start()
+        public override void Init()
         {
             DisaableAllScrolls();
 
@@ -31,6 +33,8 @@ namespace GetaGames
             btnCharacterLook.onClick.AddListener(OnBtnCharacterLookPressed);
             btnTiresLook.onClick.AddListener(OnBtnTiresPressed);
             btnbackToPlay.onClick.AddListener(OnBtnBackToPLayPressed);
+            
+            gameObject.SetActive(false);
         }
 
         public void OnBtnTiresPressed()
@@ -45,7 +49,6 @@ namespace GetaGames
             DisaableAllScrolls();
             scrollChar.gameObject.SetActive(true);
 
-            print("OnBtnCharacterLookPressed");
         }
 
         public void OnBtnChasisLookPressed()
@@ -53,7 +56,6 @@ namespace GetaGames
             DisaableAllScrolls();
             scrollChasis.gameObject.SetActive(true);
 
-            print("OnBtnChasisLookPressed");
         }
 
         public void OnBtnBackToPLayPressed()
@@ -61,6 +63,7 @@ namespace GetaGames
             DisaableAllScrolls();
             onKartLookBackBtn?.Invoke();
             gameObject.SetActive(false);
+
         }
 
         private void DisaableAllScrolls()
@@ -68,6 +71,26 @@ namespace GetaGames
             scrollChasis.gameObject.SetActive(false);
             scrollChar.gameObject.SetActive(false);
             scrollTires.gameObject.SetActive(false);
+        }
+        
+        //Btns sliders
+
+        public void OnBtnChangeTiresPressed(int index)
+        {
+            onChangeTiresBtn?.Invoke(index);
+
+        }
+        
+        public void OnBtnChangeChasisPressed(int index)
+        {
+            onChangeChasisBtn?.Invoke( index);
+
+        }
+        
+        public void OnBtnChangeCharPressed(int index)
+        {
+            onChangeCharBtn?.Invoke(index);
+
         }
     }
 }
