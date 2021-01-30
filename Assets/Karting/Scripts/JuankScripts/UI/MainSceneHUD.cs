@@ -3,25 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainSceneHUD : MonoBehaviour
-{
-    [SerializeField] private GameObject kartLookUIPanel;
-    [SerializeField] private GameObject playUIPanel;
 
-    private void Awake()
+namespace GetaGames
+{   
+    public class MainSceneHUD : MonoBehaviour   
     {
-        ActivateLookPanel(false);
-        ActivateGoPlayPanel(true);
-    }
+        [SerializeField] private GoToPlay kartLookUIPanel;
+        [SerializeField] private GameObject playUIPanel;
+       
+        
 
-    private void ActivateLookPanel(bool isActive)
-    {
-        kartLookUIPanel.SetActive(isActive);
-    }
-    
-    private void ActivateGoPlayPanel(bool isActive)
-    {
-        playUIPanel.SetActive(isActive);
+        private void Awake()
+        {
+            ActivateLookPanel(false);
+            ActivateGoPlayPanel(true);
+        }
 
+        private void ActivateLookPanel(bool isActive)
+        {
+            kartLookUIPanel.SetActive(isActive);
+        }
+
+        private void ActivateGoPlayPanel(bool isActive)
+        {
+            playUIPanel.SetActive(isActive);
+        }
     }
 }

@@ -1,71 +1,73 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GetaGames.Interfaces;
 
-public class UIKartLookController : MonoBehaviour
+
+namespace GetaGames
 {
-    [Header("Buttons")]
-    [SerializeField] private Button btnTiresLook;
-    [SerializeField] private Button btnCharacterLook;
-    [SerializeField] private Button btnChasisLook;
-    [SerializeField] private Button btnbackToPlay;
-    
-    [Header("Scrolls")]
-    [SerializeField] private GameObject scrollTires;
-    [SerializeField] private GameObject scrollChasis;
-    [SerializeField] private GameObject scrollChar;
-
-
-    private System.Action onKartLookBackBtn;
-
-
-    void Start()
+    public class UIKartLookController : MonoBehaviour, IKartLookEditable
     {
-        DisaableAllScrolls();
+        [Header("Buttons")] [SerializeField] private Button btnTiresLook;
+        [SerializeField] private Button btnCharacterLook;
+        [SerializeField] private Button btnChasisLook;
+        [SerializeField] private Button btnbackToPlay;
 
-        btnChasisLook.onClick.AddListener(OnBtnChasisLookPressed);
-        btnCharacterLook.onClick.AddListener(OnBtnCharacterLookPressed);
-        btnTiresLook.onClick.AddListener(OnBtnTiresPressed);
-        btnbackToPlay.onClick.AddListener(OnBtnBackToPLayPressed);
-    }
+        [Header("Scrolls")] [SerializeField] private GameObject scrollTires;
+        [SerializeField] private GameObject scrollChasis;
+        [SerializeField] private GameObject scrollChar;
 
-    public void OnBtnTiresPressed()
-    {
-        DisaableAllScrolls();
-        scrollTires.gameObject.SetActive(true);
-        print("OnBtnTiresPressed");
-    }
-    public void OnBtnCharacterLookPressed()
-    {
-        DisaableAllScrolls();
-        scrollChar.gameObject.SetActive(true);
 
-        print("OnBtnCharacterLookPressed");
+        public Action onKartLookBackBtn { get; set; }
 
-    }
-    public void OnBtnChasisLookPressed()
-    {
-        DisaableAllScrolls();
-        scrollChasis.gameObject.SetActive(true);
 
-        print("OnBtnChasisLookPressed");
+        void Start()
+        {
+            DisaableAllScrolls();
 
-    }
-    
-    public void OnBtnBackToPLayPressed()
-    {
-        DisaableAllScrolls();
-        onKartLookBackBtn?.Invoke();
-        gameObject.SetActive(false);
+            btnChasisLook.onClick.AddListener(OnBtnChasisLookPressed);
+            btnCharacterLook.onClick.AddListener(OnBtnCharacterLookPressed);
+            btnTiresLook.onClick.AddListener(OnBtnTiresPressed);
+            btnbackToPlay.onClick.AddListener(OnBtnBackToPLayPressed);
+        }
 
-    }
+        public void OnBtnTiresPressed()
+        {
+            DisaableAllScrolls();
+            scrollTires.gameObject.SetActive(true);
+            print("OnBtnTiresPressed");
+        }
 
-    private void DisaableAllScrolls()
-    {
-        scrollChasis.gameObject.SetActive(false);
-        scrollChar.gameObject.SetActive(false);
-        scrollTires.gameObject.SetActive(false);
+        public void OnBtnCharacterLookPressed()
+        {
+            DisaableAllScrolls();
+            scrollChar.gameObject.SetActive(true);
 
+            print("OnBtnCharacterLookPressed");
+        }
+
+        public void OnBtnChasisLookPressed()
+        {
+            DisaableAllScrolls();
+            scrollChasis.gameObject.SetActive(true);
+
+            print("OnBtnChasisLookPressed");
+        }
+
+        public void OnBtnBackToPLayPressed()
+        {
+            DisaableAllScrolls();
+            onKartLookBackBtn?.Invoke();
+            gameObject.SetActive(false);
+        }
+
+        private void DisaableAllScrolls()
+        {
+            scrollChasis.gameObject.SetActive(false);
+            scrollChar.gameObject.SetActive(false);
+            scrollTires.gameObject.SetActive(false);
+        }
     }
 }
