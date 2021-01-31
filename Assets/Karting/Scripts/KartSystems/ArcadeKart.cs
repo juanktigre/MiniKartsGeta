@@ -46,8 +46,7 @@ namespace KartGame.KartSystems
             [Tooltip("How quickly to slow down when neither acceleration or reverse is held.")]
             public float CoastingDrag;
 
-            [Range(0, 1)]
-            [Tooltip("The amount of side-to-side friction.")]
+            [Range(0, 1)] [Tooltip("The amount of side-to-side friction.")]
             public float Grip;
 
             [Tooltip("How quickly the Kart can turn left and right.")]
@@ -56,9 +55,21 @@ namespace KartGame.KartSystems
             [Tooltip("Additional gravity for when the Kart is in the air.")]
             public float AddedGravity;
 
-            [Tooltip("How much the Kart tries to keep going forward when on bumpy terrain.")]
-            [Range(0, 1)]
+            [Tooltip("How much the Kart tries to keep going forward when on bumpy terrain.")] [Range(0, 1)]
             public float Suspension;
+
+            [Tooltip("How much the Kart jumps with the jump powerUp.")]
+            public float jumpForce;
+
+            [Tooltip("How much the Kart boost with the boost powerUp.")]
+            public float boostForce;
+            [Tooltip("How quickly the Kart boost with the boost powerUp.")]
+            public float boostForceAcceleration;
+
+            [Tooltip("How much the Kart slows down with the slow powerUp.")]
+            public float slowDownForce;
+            [Tooltip("How quickly the Kart slows down with the slow powerUp.")]
+            public float slowDownForceAcceleration;
             
            
 
@@ -133,7 +144,6 @@ namespace KartGame.KartSystems
         GameObject lastGroundCollided = null;
         ArcadeKart.Stats finalStats;
         
-        public bool isSLowingDown;
 
         void Awake()
         {
@@ -176,17 +186,7 @@ namespace KartGame.KartSystems
 
             // animation
             AnimateSuspension();
-            if (isSLowingDown)
-            {
-                Vector3 adjustedVelocity = Rigidbody.velocity;
-                // Vector3 restVelocity = new Vector3(0, Rigidbody.velocity.y, 0);
-                // Vector3 restVelocity = new Vector3(Rigidbody.velocity.x * 30, Rigidbody.velocity.y, Rigidbody.velocity.z * 30);
-                Vector3 restVelocity = new Vector3(Rigidbody.velocity.x , Rigidbody.velocity.y, Rigidbody.velocity.z);
-                adjustedVelocity =Vector3.MoveTowards(adjustedVelocity, restVelocity, Time.deltaTime * 30); 
-
-                // Rigidbody.velocity = adjustedVelocity;
-                Rigidbody.velocity = restVelocity;
-            }
+            
 
         }
 
@@ -411,24 +411,7 @@ namespace KartGame.KartSystems
             }
         }
         
-        public void PowerUpSlowDown( ArcadeKartPowerup power)
-        {
-            power.onPowerupFinishCooldownAction = onfinishslowDown;
-            isSLowingDown = true;
-        }
-
-        public void JumpPowerup(float value)
-        {
-            print("Jump powerUp");
-            Vector3 restVelocity = new Vector3(Rigidbody.velocity.x, Rigidbody.velocity.y*value,Rigidbody.velocity.z);
-            Rigidbody.velocity = restVelocity;
-        }
-
-        private void onfinishslowDown()
-        {
-            isSLowingDown = false;
-
-        }
+        
 
         void ApplyAngularSuspension()
         {

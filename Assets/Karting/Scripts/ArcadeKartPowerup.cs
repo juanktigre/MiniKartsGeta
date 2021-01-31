@@ -20,9 +20,6 @@ public class ArcadeKartPowerup : MonoBehaviour {
     public UnityEvent onPowerupFinishCooldown;
     public System.Action onPowerupFinishCooldownAction;
 
-    public bool slowDown;
-    public bool jump;
-
     private void Awake()
     {
         lastActivatedTimestamp = -9999f;
@@ -45,32 +42,25 @@ public class ArcadeKartPowerup : MonoBehaviour {
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
          if (isCoolingDown) return;
-        
-        
 
-        var rb = other.attachedRigidbody;
+         var rb = other.attachedRigidbody;
         if (rb) {
-
+        
             var kart = rb.GetComponent<ArcadeKart>();
-
+        
             if (kart)
             { 
-                if(slowDown)
-                    kart.PowerUpSlowDown(this);
-                else if(jump)
-                    kart.JumpPowerup(boostStats.modifiers.Acceleration);
-                else
-                {
-                    kart.AddPowerup(this.boostStats);
-                    onPowerupActivated.Invoke();
-                }
+                    // kart.PowerUpSlowDown(this);
+                    // kart.JumpPowerup(boostStats.modifiers.TopSpeed);
+                    // kart.AddPowerup(this.boostStats);
+                    // onPowerupActivated.Invoke();
                 lastActivatedTimestamp = Time.time;
-
+        
                 isCoolingDown = true;
-
+        
                 if (disableGameObjectWhenActivated) this.gameObject.SetActive(false);
             }
         }

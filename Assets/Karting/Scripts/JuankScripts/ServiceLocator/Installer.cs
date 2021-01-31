@@ -13,6 +13,7 @@ namespace GetaGames.Services
             private void Awake()
             {
                 ServiceLocator.Instance.RegisterService<IDataSaver>(new PlayerPrefsAdapter());
+                DontDestroyOnLoad(this);
             }
         }
     }
