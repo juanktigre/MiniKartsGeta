@@ -9,6 +9,7 @@ public class ArcadeKartPowerup : MonoBehaviour {
         MaxTime = 5
     };
 
+    [SerializeField] private bool coolingDown;
     public bool isCoolingDown { get; private set; }
     public float lastActivatedTimestamp { get; private set; }
 
@@ -17,6 +18,7 @@ public class ArcadeKartPowerup : MonoBehaviour {
     public bool disableGameObjectWhenActivated;
     public UnityEvent onPowerupActivated;
     public UnityEvent onPowerupFinishCooldown;
+    public System.Action onPowerupFinishCooldownAction;
 
     private void Awake()
     {
@@ -26,34 +28,39 @@ public class ArcadeKartPowerup : MonoBehaviour {
 
     private void Update()
     {
+        coolingDown = isCoolingDown;
         if (isCoolingDown) { 
 
             if (Time.time - lastActivatedTimestamp > cooldown) {
                 //finished cooldown!
                 isCoolingDown = false;
                 onPowerupFinishCooldown.Invoke();
+                onPowerupFinishCooldownAction?.Invoke();
             }
 
         }
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        if (isCoolingDown) return;
+         if (isCoolingDown) return;
 
-        var rb = other.attachedRigidbody;
+         var rb = other.attachedRigidbody;
         if (rb) {
-
+        
             var kart = rb.GetComponent<ArcadeKart>();
-
+        
             if (kart)
             { 
+                    // kart.PowerUpSlowDown(this);
+                    // kart.JumpPowerup(boostStats.modifiers.TopSpeed);
+                    // kart.AddPowerup(this.boostStats);
+                    // onPowerupActivated.Invoke();
                 lastActivatedTimestamp = Time.time;
-                kart.AddPowerup(this.boostStats);
-                onPowerupActivated.Invoke();
+        
                 isCoolingDown = true;
-
+        
                 if (disableGameObjectWhenActivated) this.gameObject.SetActive(false);
             }
         }
