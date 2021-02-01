@@ -16,7 +16,7 @@ public class SlowDownPowerUp : ArcadeKartPowerup
 
             if (kart)
             { 
-                kart.GetComponent<SlowdownPowerUpBehaviour>().PerformPowerUp(this);
+                kart.GetComponent<SlowdownPowerUpBehaviour>()?.PerformPowerUp(this);
             }
         }
         

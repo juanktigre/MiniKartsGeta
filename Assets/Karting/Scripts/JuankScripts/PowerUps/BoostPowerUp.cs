@@ -16,7 +16,7 @@ public class BoostPowerUp : ArcadeKartPowerup
 
             if (kart)
             { 
-                kart.GetComponent<BoostPowerUpBehaviour>().PerformPowerUp(this);
+                kart.GetComponent<BoostPowerUpBehaviour>()?.PerformPowerUp(this);
             }
         }
         

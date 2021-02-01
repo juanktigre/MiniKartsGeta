@@ -8,17 +8,29 @@ public class BoostPowerUpBehaviour : MonoBehaviour
     private ArcadeKart kart;
     public bool isPerformingPoweUp;
     public ArcadeKart.StatPowerup boostStats = new ArcadeKart.StatPowerup();
+    [SerializeField] private GameObject powerUpFVX;
+
 
     void Awake()
     {
         kart = GetComponent<ArcadeKart>();
+        if(powerUpFVX)
+            powerUpFVX?.SetActive(false);
     }
 
     public void PerformPowerUp(ArcadeKartPowerup power)
     {
         boostStats= power.boostStats ;
-        power.onPowerupFinishCooldownAction = () => isPerformingPoweUp = false;
+        power.onPowerupFinishCooldownAction = () =>
+        {
+            isPerformingPoweUp = false;
+            if(powerUpFVX)
+                powerUpFVX?.SetActive(false);
+
+        };
         isPerformingPoweUp = true;
+        if(powerUpFVX)
+            powerUpFVX?.SetActive(true);
     }
 
     public void FixedUpdate()
