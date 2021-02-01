@@ -2327,7 +2327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTypeSetUp: {fileID: 11400000, guid: 2bba912c35f3a584bae9bc6ae4c0aa7f, type: 2}
   kartLookUIPanel: {fileID: 1632018731}
-  playUIPanel: {fileID: 1043169504}
+  playBaseClassUIPanel: {fileID: 1043169504}
   kartEditLookCtrl: {fileID: 3934862072311242299}
 --- !u!1 &1906286930
 GameObject:
