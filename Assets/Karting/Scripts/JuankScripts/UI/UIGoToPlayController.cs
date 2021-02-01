@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 namespace GetaGames
 {
-    public class UIGoToPlayController : GoToPlay
+    public class UIGoToPlayController : GoToPlayBaseClass
     {
         [FormerlySerializedAs("btnGotoPlay")]
         [Header("Buttons")]

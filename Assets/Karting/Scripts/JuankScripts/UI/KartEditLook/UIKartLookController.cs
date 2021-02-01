@@ -10,7 +10,7 @@ using GetaGames.Interfaces;
 
 namespace GetaGames
 {
-    public class UIKartLookController :  KartLookEditable
+    public class UIKartLookController :  KartLookEditableBaseClass
     {
         [Header("Buttons")] [SerializeField] private Button btnTiresLook;
         [SerializeField] private Button btnCharacterLook;

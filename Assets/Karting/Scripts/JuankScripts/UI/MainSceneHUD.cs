@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GetaGames.BaseClasses;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 namespace GetaGames
@@ -11,18 +12,18 @@ namespace GetaGames
     {
         [SerializeField] private KartLookSetUpScriptable lookTypeSetUp;
 
-        [SerializeField] private KartLookEditable kartLookUIPanel;
-        [SerializeField] private GoToPlay playUIPanel; 
+        [SerializeField] private KartLookEditableBaseClass kartLookUIPanel;
+        [FormerlySerializedAs("playUIPanel")] [SerializeField] private GoToPlayBaseClass playBaseClassUIPanel; 
         [SerializeField] private KartEditLookController kartEditLookCtrl;
 
         private void Start()
         {
             kartEditLookCtrl.Init(lookTypeSetUp);
             kartLookUIPanel.Init(kartEditLookCtrl.GetComponent<IKartEditLookable>());
-            playUIPanel.Init();
+            playBaseClassUIPanel.Init();
             
             kartLookUIPanel.onKartLookBackBtn = ActivateGoPlayPanel ;
-            playUIPanel.onKartLookBtnPressed =  ActivateLookPanel;
+            playBaseClassUIPanel.onKartLookBtnPressed =  ActivateLookPanel;
         }
 
         private void ActivateLookPanel()
@@ -33,7 +34,7 @@ namespace GetaGames
 
         private void ActivateGoPlayPanel()
         {
-            playUIPanel.gameObject.SetActive(true);
+            playBaseClassUIPanel.gameObject.SetActive(true);
             print("ActivateGoPlayPanel");
 
         }

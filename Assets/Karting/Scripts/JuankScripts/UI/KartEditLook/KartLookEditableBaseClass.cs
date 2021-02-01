@@ -3,7 +3,7 @@ using System;
 
 namespace GetaGames.BaseClasses
 {
-    public abstract class KartLookEditable : MonoBehaviour
+    public abstract class KartLookEditableBaseClass : MonoBehaviour
     {
         public abstract Action onKartLookBackBtn { get; set; }
         public abstract Action<int> onChangeCharBtn { get; set; }
