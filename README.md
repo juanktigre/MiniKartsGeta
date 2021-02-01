@@ -1,5 +1,7 @@
 # MiniKartsGeta
-This is a variation of Micro-game karts game by Unity, Which includes a Kart customization and also two game modes:<br>
+This is a variation of Karting Microgame karts game by Unity.<br>
+https://assetstore.unity.com/packages/templates/karting-microgame-150956 <br>
+Which includes a Kart customization and also two game modes:<br>
 -Against AI<br>
 -Count Down<br>
 Plus you can find three mod pads, Boost, Slowdown and jump Powerups<br>
